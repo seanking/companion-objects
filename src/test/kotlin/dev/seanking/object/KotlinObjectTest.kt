@@ -1,5 +1,6 @@
 import assertk.assertThat
 import assertk.assertions.isSameAs
+import dev.seanking.`object`.KotlinObject
 import org.junit.jupiter.api.Test
 
 class KotlinObjectTest {
@@ -17,4 +18,3 @@ class KotlinObjectTest {
     }
 }
 
-object KotlinObject
