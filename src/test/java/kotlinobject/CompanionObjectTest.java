@@ -1,7 +1,6 @@
-package dev.seanking.object;
+package dev.seanking.kotlinobject;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import dev.seanking.companionobject.Car;
