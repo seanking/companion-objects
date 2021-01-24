@@ -2,6 +2,9 @@ import assertk.all
 import assertk.assertThat
 import assertk.assertions.isEqualTo
 import assertk.assertions.prop
+import dev.seanking.companionobject.Car
+import dev.seanking.companionobject.Dog
+import dev.seanking.companionobject.Person
 import org.junit.jupiter.api.Test
 
 class CompanionObjectTest {
@@ -36,29 +39,6 @@ class CompanionObjectTest {
         
         // Then
         assertThat(dog).prop(Dog::breed).isEqualTo("mutt")
-    }
-}
-
-class Person(val firstName: String, val lastName: String) {
-    companion object {
-        fun defaultPerson() = Person("Jane", "Smith") 
-    }
-}
-
-interface Factory<T> {
-    fun create() : T 
-}
-
-class Car(val make: String, val model: String) {
-    companion object : Factory<Car> {
-        override fun create(): Car = Car("Honda", "Civic")
-    }
-}
-
-class Dog(val breed: String) {
-    companion object{
-        @JvmStatic
-        fun defaultDog() = Dog("mutt")
     }
 }
 
