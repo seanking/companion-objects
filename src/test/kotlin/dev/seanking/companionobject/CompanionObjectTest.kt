@@ -23,7 +23,7 @@ class CompanionObjectTest {
     @Test
     fun `should implement an interface`() {
         // When 
-        val car = Car.create();
+        val car = Car.create()
         
         // Then
         assertThat(car).all { 
