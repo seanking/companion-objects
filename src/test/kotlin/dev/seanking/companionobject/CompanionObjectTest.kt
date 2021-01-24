@@ -2,9 +2,6 @@ import assertk.all
 import assertk.assertThat
 import assertk.assertions.isEqualTo
 import assertk.assertions.prop
-import dev.seanking.companionobject.Car
-import dev.seanking.companionobject.Dog
-import dev.seanking.companionobject.Person
 import org.junit.jupiter.api.Test
 
 class CompanionObjectTest {
