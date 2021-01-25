@@ -1,4 +1,4 @@
-# Companion Object
+# Companion Objects In Kotlin
 
 This article will try to explain companion objects in [Kotlin](https://kotlinlang.org) and also provide examples for 
 how they can be accessed via Java. Before companion objects can be explained, it is best to first explain the 
@@ -6,8 +6,9 @@ how they can be accessed via Java. Before companion objects can be explained, it
 
 ## Object
 
-The object declaration in Kotlin is similar to [Scala](https://www.scala-lang.org), it is used to declare a Singleton. 
-In the following example a `KotlinObject` is declared, and an assert is used to verify that only one instance exists.
+The object declaration in Kotlin is similar to [Scala](https://www.scala-lang.org) as it is used to declare a Singleton.
+An object declaration is initialized lazily, when it is accessed for the first time. In the following example a 
+`KotlinObject` is declared, and an assert is used to verify that only one instance exists.
 
 ```kotlin
 object KotlinObject {
@@ -24,9 +25,10 @@ assert(firstObject === secondObject)
 
 ## Companion Object
 
-A companion object is the declaration of an object inside a class. The companion object can be accessed similarly to 
-the way static fields and methods are accessed in Java, the class is used as a qualifier. The following is a declaration
-of a companion object in the Person class. 
+A companion object is the declaration of an object inside a class. Similar to a static initializer in Java, the 
+companion object is initialized when the class is loaded. A companion object can be accessed similarly to the way static 
+fields and methods are accessed in Java, the class is used as a qualifier. The following is a declaration of a 
+companion object for the `Person` class. 
 
 ```kotlin
 class Person(val firstName: String, val lastName: String) {
@@ -39,8 +41,8 @@ val person = Person.defaultPerson()
 ```
 
 Since Kotlin is compiled into bytecode, companion objects can be accessed in Java. The following example demonstrates 
-the accessing of a companion object in Java. Since there wasn't a name given to the companion object in the previous 
-example, a the default name of `Companion` was provided. This means the companion object can be accessed by using the 
+the accessing of a companion object in Java. Since there wasn't a name given to the `Person` companion object,
+the default name of `Companion` is provided to the object. This means the companion object can be accessed by using the 
 qualifier `Person.Companion`.
 
 ```java
@@ -70,8 +72,9 @@ Since the companion object was named as `CarFactory`, the companion object is ac
 var car = Car.CarFactory.create();
 ```
 
-Some JVM libraries (e.g., JUnit) depend on static methods. To support these libraries Kotlin has an `@JvmStatic` 
-annotation. The `@JvmStatic` annotation instructs the Kotlin compiler to generate real static fields and methods.
+It is common for Java libraries (e.g., JUnit) to depend on static methods. To support these libraries Kotlin has an 
+`@JvmStatic` annotation. The `@JvmStatic` annotation instructs the Kotlin compiler to generate real static fields and
+methods.
 
 ```kotlin
 class Dog(val breed: String) {
